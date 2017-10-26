@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Web Bhumi</title>
+  </head>
+  <body>
+    <input type="text" name="" value="" id="main">
+    <button type="button" name="button" onclick="setData()">Save</button>
+    <p id="out"></p>
+  </body>
+
+
+<script>
+  function setData()
+{
+var input = document.getElementById("main").value;
+document.getElementById("out").innerHTML+=input;
+
+}
+</script>
+</html>
