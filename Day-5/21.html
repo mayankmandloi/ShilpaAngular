@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Web Bhumi</title>
+  </head>
+  <body>
+
+  </body>
+<script>
+/*
+//window is the current object so this reffers to window
+  console.log(this);
+  this.alert("Hello World");
+  alert("Tata World");
+*/
+
+function testFunction()
+{
+this.alert("I am inside Function");
+}
+testFunction();
+//here this.alert will give error because new object will not be window
+var test = new testFunction();
+</script>
+</html>
