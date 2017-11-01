@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Web Bhumi</title>
+  </head>
+  <body>
+        <input type="text" name="" value="" id="email" onkeyup="checkEmail()">
+        <span id="error" style="color:red"></span>
+        <span id="success" style="color:green"></span>
+  </body>
+<script>
+function checkEmail()
+{
+  var text = document.getElementById("email").value;
+  if(/[a-z0-9]+[@][a-z]+[.][a-z]{2,3}/.test(text))
+      {
+        document.getElementById("success").innerHTML= "perfect";
+          document.getElementById("error").innerHTML= "";
+      }
+else
+{
+  document.getElementById("success").innerHTML= "";
+    document.getElementById("error").innerHTML= "Please check your email";
+}
+}
+</script>
+</html>

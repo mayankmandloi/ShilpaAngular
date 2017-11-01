@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Web Bhumi</title>
+</head>
+<body>
+    <div ng-app="myModule">
+        <div ng-controller="myController">
+            Hello I am {{name}} My Number is {{number}}
+            <div ng-repeat="person in persons">{{person}}</div>
+
+            <div ng-repeat="insaan in bheed">
+                hello I am {{insaan.name}} and my Id is {{insaan.number}}
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="angular.min.js"></script>
+<script>
+var app=angular.module('myModule',[]);
+app.controller("myController",function($scope){
+    $scope.name="Shilpa";
+    $scope.number="007";
+    $scope.persons=["Nirupama","Shilpa","Pratibha","Sunita","Aruna","Anupama","Ritupama"];
+    $scope.bheed=[{name:"Varsha",number:"100"},{name:"Nirupama",number:"001"},{name:"Ritupama",number:"002"},{name:"Anupama",number:"003"},{name:"Akash",number:"004"},{name:"Shilpa",number:"005"}]
+
+})</script>
+</html>

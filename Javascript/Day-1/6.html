@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Web Bhumi</title>
+  </head>
+  <body>
+    Variable Hoisting only declaration part will move on the top of scope
+  </body>
+
+<script>
+console.log(a);
+var a=10;
+
+function test()
+{
+var b =10;
+}
+test();
+console.log(b);
+</script>
+</html>
