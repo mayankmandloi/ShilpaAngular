@@ -1,0 +1,29 @@
+<! DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div ng-app="myModule">
+        <div ng-controller="myController">
+             Hello I am {{name}}
+
+             <div ng-repeat="person in persons">
+             {{person}}
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+<script src="angular.min.js"></script>
+<script>
+    var app=angular.module ('myModule',[]);
+    app.controller("myController",function($scope){
+           $scope.name="Shilpa";
+           $scope.persons=["MICKY","GOLDY","SHILPA","ALPA","MONIL","RISHI","KESHAV","PUNEET","PRIYANJALI"];
+
+    })</script>
+</html>
