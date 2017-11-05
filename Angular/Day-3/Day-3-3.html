@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Bhumi</title>
+</head>
+<body>
+    <div ng-app="myModule">
+        <div ng-controller="myController">
+            <input type="text" name="" id="" ng-model="searchText">
+                <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Number</th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="bh in bheed |filter:searchText">
+                                <td><span ng-hide="val">{{bh.name}}</span><input ng-show="val" type="text"ng-model="bh.name"></td>
+                                <td>{{bh.number}}</td>
+                                <td> <a href="#" ng-click="val=1" ng-hide="val" >Edit</a><a href="#" ng-click="val=0" ng-show="val">Save</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+        </div>
+    </div>
+</body>
+
+<script src="../js/angular.min.js"></script>
+<script>
+    var app=angular.module("myModule",[]);
+    app.controller("myController",function($scope){
+        $scope.bheed=[{name:"Varsha",number:"100"},{name:"Nirupama",number:"001"},{name:"Ritupama",number:"002"},{name:"Anupama",number:"003"},{name:"Akash",number:"004"},{name:"Shilpa",number:"005"}]
+    })
+</script>
+</html>

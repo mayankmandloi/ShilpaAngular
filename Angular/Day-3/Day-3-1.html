@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Bhumi</title>
+</head>
+<body>
+    <div ng-app="myModule">
+        <div ng-controller="myController">
+            <p ng-click="val=1" ng-hide=val>{{name}}</p>
+ 
+            <input type="text" ng-model="name" ng-blur="val=0" ng-show="val">
+        </div>
+    </div>
+</body>
+<script src="../js/angular.min.js"></script>
+<script>
+    angular.module("myModule",[]).controller("myController",function($scope){
+        $scope.name="Shilpa";
+        $scope.val;
+    });
+</script>   
+</html>

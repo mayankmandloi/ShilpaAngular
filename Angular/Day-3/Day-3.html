@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Bhumi</title>
+    <style>
+    .wb4-col{
+            width: 33%;
+            float: left;
+            height: 500px;
+            overflow: auto;
+
+    }
+    </style>
+</head>
+<body>
+    <div ng-app="bookModule">
+        <div ng-controller="bookController">
+            <div ng-repeat="book in Books" class="wb4-col">
+                <h3>{{book.Title}}</h3>
+                <img src="{{book.Image}}" alt="">
+                <p>{{book.Description}}</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="../js/angular.min.js"></script>
+<script src="../js/book.js"></script>
+<script>
+    var app = angular.module("bookModule",[]);
+    app.controller("bookController",function($scope){
+        $scope.Books = book;
+    })
+</script>
+</html>
