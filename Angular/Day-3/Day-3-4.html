@@ -9,6 +9,7 @@
 <body>
     <div ng-app="personModule">
         <div ng-controller="personController">
+          <input type="text" ng-model="sortText">
             <table>
                 <thead>
                     <tr>
@@ -18,7 +19,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="bh in bheed">
+                    <tr ng-repeat="bh in bheed | orderBy:sortText">
                         <td><span ng-hide="val">{{bh.name}}</span><input ng-show="val" type="text"ng-model="bh.name"></td>
                         <td>{{bh.number}}</td>
                         <td> <a href="#" ng-click="val=1" ng-hide="val" >Edit</a><a href="#" ng-click="val=0" ng-show="val">Save</a></td>
