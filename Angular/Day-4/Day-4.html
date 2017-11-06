@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Bhumi</title>
+</head>
+<body>
+    <div ng-app="myModule">
+        <div ng-controller="myController">
+            {{bheed|json}}
+                <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Number</th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="bh in bheed | limitTo:10">
+                                <td><span ng-hide="val">{{bh.name|lowercase}}</span><input ng-show="val" type="text"ng-model="bh.name"></td>
+                                <td>{{bh.number|date}}</td>
+                                <td> <a href="#" ng-click="val=1" ng-hide="val" >Edit</a><a href="#" ng-click="val=0" ng-show="val">Save</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+        </div>
+    </div>
+    
+</body>
+<script src="../js/angular.min.js"></script>
+<script>
+    var app=angular.module("myModule",[]);
+    app.controller("myController",function($scope){
+        $scope.bheed=[{name:"Varsha",number:86401000},{name:"Nirupama",number:new Date()},{name:"Ritupama",number:"002"},{name:"Anupama",number:"003"},{name:"Akash",number:"004"},{name:"Shilpa",number:"005"}]
+    });
+</script>
+</html>
