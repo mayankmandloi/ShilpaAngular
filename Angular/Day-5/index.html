@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Bhumi</title>
+</head>
+<body ng-app="myModule">
+    test
+    <ng-view></ng-view>
+</body>
+<script src="../js/angular.min.js"></script>
+<script src="../js/angular-route.min.js"></script>
+<script>
+    angular.module("myModule",["ngRoute"]);
+
+    angular.module("myModule").config(function ($routeProvider) {
+        $routeProvider.when("/",{
+                template:"<h1>hello World</h1>"
+            }
+        );
+
+        $routeProvider.when("/shilpa",{
+                template:"Hello I am shilpa"
+            
+        });
+
+        $routeProvider.when("/nirupama", {
+            template:"hello I am Nirupama"
+        
+    });
+
+    $routeProvider.when("/webbhumi", {
+                template:"<h1>I am from Web Bhumi</h1>"
+            
+        });
+    })
+</script>
+</html>

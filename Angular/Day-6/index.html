@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Bhumi</title>
+</head>
+<body>
+    <div ng-app="myModule">
+        
+            
+    <ng-view></ng-view>
+
+    </div>
+    
+</body>
+<script src="../js/angular.min.js"></script>
+<script src="../js/angular-route.min.js"></script>
+<script>
+    angular.module("myModule",["ngRoute"]);
+
+    angular.module("myModule").controller("bookController",function ($scope,$http,storeData) {
+        $scope.Books=storeData.bookList;
+        $scope.search=function ()
+        {
+            $http.get("http://it-ebooks-api.info/v1/search/"+$scope.searchText).then(function success(responseData){
+            $scope.Books=responseData.data.Books;
+            storeData.bookList=responseData.data.Books
+        },function failuer(params){})
+
+        }
+        $scope.test=function(t){
+        if(t.key=="Enter")
+        {
+            $scope.search();
+        }
+        }
+    });
+
+    angular.module("myModule").config(function ($routeProvider) 
+    {
+    $routeProvider.when("/",{
+        templateUrl:"allBooks.html",
+        controller:"bookController"
+    });
+    $routeProvider.when("/book/:id",{
+        templateUrl:"selectedBook.html",
+        controller:function($scope,$routeParams,storeData){
+            $scope.bookID=$routeParams.id;
+            $scope.Books=storeData.bookList;
+        }
+    });   
+    });
+
+
+    angular.module("myModule").service("storeData",function(){
+        this.bookList;
+    })
+</script>
+</html>
